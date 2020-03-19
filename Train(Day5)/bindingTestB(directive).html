@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="kr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Template - Directives</title>
+  </head>
+  <body>
+    <div id="app">
+      <a v-if="flag">병과</a>
+        <ul>
+          <li v-for="system in systems">{{ system }}</li>
+        </ul>
+        <p v-show="flag">탄약</p>
+        <h5 v-bind:id="uid">총기 종류</h5>
+        <button v-on:click="popupAlert">경고 버튼</button>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        flag: true,
+        systems: ['HG','RF','MG','SG','AR','SMG'],
+        uid: 10
+      },
+        methods:{
+          popupAlert: function(){
+            return alert('경고 창 표시하기');
+          }
+        }
+    });
+  </script>
+</html>

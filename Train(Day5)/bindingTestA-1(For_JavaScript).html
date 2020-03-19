@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="kr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>V-once 예제 연습</title>
+  </head>
+  <body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ message + "!!!" }}</p>
+        <p>{{ message.split('').reverse().join('') }}</p>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el:'#app',
+      data: {
+        message: '여러분 이거 다 거짓말인거 아시죠'
+      }
+    });
+  </script>
+</html>
