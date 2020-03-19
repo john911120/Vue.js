@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="kor" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>props 속성으로 데이터 전달해보는 예제</title>
+  </head>
+    <div id="app">
+      <child-component v-bind:propsdata="message"></child-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+
+      Vue.component('child-component', {
+        props: ['propsdata'],
+        template: '<p>{{ propsdata }}</p>'
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+          message: '내가 주로 이용하는 시내버스 노선은 741'
+        }
+      });
+      </script>
+  <body>
+
+  </body>
+</html>

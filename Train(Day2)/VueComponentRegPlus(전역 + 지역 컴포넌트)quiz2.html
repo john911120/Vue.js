@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Vue Component Registration Quiz2</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h3>{{ message }}</h3>
+      </header>
+      <!-- 등록한 my-component가 최종적으로 변환되는 모습이다. -->
+      Vue.component('todo-footer',{
+        template: "<p>this is another global child component</p>"
+      });
+
+      var cmp = {
+        // 컴포넌트 내용
+        template: "<p>this is another local child component</p>"
+      }
+        var app = new Vue({
+          el: '#app',
+          data: {
+            message: 'This is a parent Component'
+          },
+        });
+
+        new Vue({
+          el: "#app",
+          components: {
+            "todo-list": cmp
+          }
+        });
+    </div>
+    <script src="js/vendor/vue.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Component Registration1</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 등록한 my-component가 최종적으로 변환되는 모습이다. -->
+      <todo-footer></todo-footer>
+      <todo-list></todo-list>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+    Vue.component('todo-footer',{
+      template: "<p>this is another global child component</p>"
+    });
+
+    var cmp = {
+      // 컴포넌트 내용
+      template: "<p>this is another local child component</p>"
+    }
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'This is a parent Component'
+        },
+
+        components: {
+          "todo-list": cmp
+        }
+      });
+    </script>
+  </body>
+</html>

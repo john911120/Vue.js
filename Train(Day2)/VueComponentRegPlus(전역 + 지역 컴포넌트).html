@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Component Registration1</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>첫 번째 인스턴스 영역</h3>
+      <!-- 등록한 my-component가 최종적으로 변환되는 모습이다. -->
+      <my-global-component></my-global-component>
+      <my-local-component></my-local-component>
+    </div>
+    <hr>
+    <div id="app2">
+      <h3>두 번째 인스턴스 영역</h3>
+      <!-- 등록한 my-component가 최종적으로 변환되는 모습이다. -->
+      <my-global-component></my-global-component>
+      <my-local-component></my-local-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+    Vue.component('my-global-component',{
+      template: "<div>전역 컴포넌트</div>"
+    });
+
+      var cmp = {
+        // 컴포넌트 내용
+        template: "<div>지역 컴포넌트</div>"
+      };
+
+      new Vue({
+        el: "#app",
+        components: {
+          "my-local-component": cmp
+        }
+      });
+
+      // 두번째 인스턴스가 들어오는 부분
+      new Vue({
+        el: "#app2"
+      });
+
+      var cmp1 = {
+        template: "<div>지역1 컴포넌트 </div>"
+      }
+    </script>
+  </body>
+</html>
